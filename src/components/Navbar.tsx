@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Menu, X, Zap } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-// 导航链接数据
+// 导航链接
 const navLinks = [
   { href: '/', label: '首页' },
   { href: '/services', label: '服务' },
@@ -18,57 +18,57 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 gradient-primary rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
               <Zap className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="font-bold text-xl text-gray-900">智核</span>
-              <span className="text-sm text-primary-500 ml-1 font-medium">ZhiCore</span>
+              <span className="font-bold text-lg text-gray-900">智核</span>
+              <span className="text-xs text-primary-500 ml-1 font-medium">ZhiCore</span>
             </div>
           </Link>
 
-          {/* PC端导航链接 */}
+          {/* PC 导航 */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 transition-all"
+                className="px-3.5 py-2 text-sm font-medium text-gray-500 hover:text-primary-600 rounded-lg hover:bg-primary-50/50 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="ml-4 px-5 py-2 text-sm font-semibold text-white gradient-primary rounded-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all"
+              className="ml-3 px-4 py-2 text-sm font-semibold text-white gradient-primary rounded-lg hover:shadow-md hover:shadow-primary-500/20 transition-all"
             >
               立即咨询
             </Link>
           </div>
 
-          {/* 移动端汉堡菜单按钮 */}
+          {/* 移动端菜单按钮 */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-50 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5 text-gray-600" /> : <Menu className="w-5 h-5 text-gray-600" />}
           </button>
         </div>
       </div>
 
-      {/* 移动端下拉菜单 */}
-      <div className={cn('md:hidden transition-all duration-300 overflow-hidden', isOpen ? 'max-h-96' : 'max-h-0')}>
-        <div className="px-4 pb-4 space-y-1">
+      {/* 移动端下拉 */}
+      <div className={cn('md:hidden transition-all duration-300 overflow-hidden border-b border-gray-100 bg-white', isOpen ? 'max-h-80' : 'max-h-0 border-0')}>
+        <div className="px-4 pb-3 pt-1 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 transition-all"
+              className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-primary-600 rounded-lg hover:bg-primary-50/50 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -76,7 +76,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="block px-4 py-3 text-sm font-semibold text-white gradient-primary rounded-lg text-center"
+            className="block px-4 py-2.5 text-sm font-semibold text-white gradient-primary rounded-lg text-center mt-2"
             onClick={() => setIsOpen(false)}
           >
             立即咨询

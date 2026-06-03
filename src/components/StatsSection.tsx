@@ -10,16 +10,16 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-16 gradient-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section className="py-16 gradient-light">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((s, i) => (
-            <div key={i} className="text-center text-white">
-              <div className="w-12 h-12 mx-auto bg-white/20 rounded-xl flex items-center justify-center mb-3">
-                <s.icon className="w-6 h-6" />
+            <div key={i} className="text-center p-6 card">
+              <div className="w-11 h-11 mx-auto gradient-primary rounded-lg flex items-center justify-center mb-3">
+                <s.icon className="w-5.5 h-5.5 text-white" />
               </div>
-              <div className="text-3xl md:text-4xl font-extrabold mb-1">{s.value}</div>
-              <div className="text-sm text-white/80">{s.label}</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-0.5">{s.value}</div>
+              <div className="text-xs text-gray-400">{s.label}</div>
             </div>
           ))}
         </div>

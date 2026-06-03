@@ -18,26 +18,26 @@ export default function FaqPage() {
 
   return (
     <div className="pt-8 pb-20">
-      <div className="gradient-light py-20">
+      <div className="gradient-light py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">常见问题</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">这里整理了大家最关心的问题，如果还有其他疑问，欢迎随时联系我</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">常见问题</h1>
+          <p className="text-base text-gray-500 max-w-xl mx-auto">这里整理了大家最关心的问题，如果还有其他疑问，欢迎随时联系我们</p>
         </div>
       </div>
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-        <div className="space-y-3">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
+        <div className="space-y-2.5">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-all">
+            <div key={i} className="card overflow-hidden">
               <button
-                className="w-full px-6 py-4 flex items-center justify-between text-left"
+                className="w-full px-5 py-3.5 flex items-center justify-between text-left"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <span className="font-medium text-gray-900">{faq.q}</span>
-                <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4 ${openIndex === i ? "rotate-180" : ""}`} />
+                <span className="text-sm font-medium text-gray-900">{faq.q}</span>
+                <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform flex-shrink-0 ml-3 ` + (openIndex === i ? `rotate-180` : ``)} />
               </button>
               {openIndex === i && (
-                <div className="px-6 pb-4">
-                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                <div className="px-5 pb-4">
+                  <p className="text-xs text-gray-500 leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>
