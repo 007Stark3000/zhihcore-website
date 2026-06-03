@@ -1,8 +1,9 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
-/* 品牌色彩系统：统一使用蓝色系（Primary） */
+/* ===== Ʒ��ɫ��ϵͳ�����ɫ�� ===== */
 @theme {
+  /* ��ɫ - ��ɫϵ */
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
   --color-primary-200: #bfdbfe;
@@ -14,27 +15,93 @@
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
   --color-primary-950: #172554;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ��Ҫɫ - ����� */
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+
+  /* ��Ҫɫ - ��ɫϵ */
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-200: #ddd6fe;
+  --color-violet-300: #c4b5fd;
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+
+  /* ��Ҫɫ - ��ɫϵ */
+  --color-orange-50: #fff7ed;
+  --color-orange-100: #ffedd5;
+  --color-orange-200: #fed7aa;
+  --color-orange-300: #fdba74;
+  --color-orange-400: #fb923c;
+  --color-orange-500: #f97316;
+  --color-orange-600: #ea580c;
+
+  /* ��Ҫɫ - ��ɫϵ */
+  --color-pink-50: #fdf2f8;
+  --color-pink-100: #fce7f3;
+  --color-pink-200: #fbcfe8;
+  --color-pink-300: #f9a8d4;
+  --color-pink-400: #f472b6;
+  --color-pink-500: #ec4899;
+  --color-pink-600: #db2777;
+
+  /* ��Ҫɫ - ��ɫϵ */
+  --color-cyan-50: #ecfeff;
+  --color-cyan-100: #cffafe;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+
+  /* ��Ҫɫ - ����ɫ */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  --font-sans: '\''Inter'\'', system-ui, -apple-system, sans-serif;
   --animate-fade-in: fadeIn 0.6s ease-out;
   --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-float: float 3s ease-in-out infinite;
 }
 
 @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 @keyframes slideUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
 :root { --primary: #2563eb; --primary-dark: #1d4ed8; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #1f2937; background: #ffffff; }
+body { font-family: '\''Inter'\'', system-ui, -apple-system, sans-serif; color: #1f2937; background: #ffffff; }
 
+/* ===== ���乤���� ===== */
 .gradient-primary { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e3a8a 100%); }
+.gradient-emerald { background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); }
+.gradient-violet { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%); }
+.gradient-orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%); }
+.gradient-pink { background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #be185d 100%); }
+.gradient-cyan { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%); }
+.gradient-amber { background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%); }
 .gradient-light { background: linear-gradient(180deg, #f8faff 0%, #eef4ff 50%, #e0eaff 100%); }
 .gradient-subtle { background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%); }
 
-/* 统一卡片样式 */
+/* ͳһ��Ƭ��ʽ */
 .card { background: #fff; border: 1px solid #f1f5f9; border-radius: 12px; transition: all 0.2s ease; }
 .card:hover { border-color: #dbeafe; box-shadow: 0 8px 24px rgba(37,99,235,0.06); }
 
-/* 统一section间距 */
+/* ͳһsection��� */
 .section { padding: 80px 0; }
 .section-sm { padding: 48px 0; }
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(37,99,235,0.1); }
